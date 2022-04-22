@@ -196,13 +196,13 @@ MonoBehaviour:
   m_Name: Android
   m_EditorClassIdentifier: 
   features:
-  - {fileID: -797041228220768280}
-  - {fileID: 2524496959780787009}
-  - {fileID: -2167191227833686612}
-  - {fileID: -588144052291740162}
-  - {fileID: -1100096941682269378}
-  - {fileID: 91479376452491867}
-  - {fileID: -601108595961547100}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   m_renderMode: 1
   m_depthSubmissionMode: 0
 --- !u!114 &-2223431971534061053
