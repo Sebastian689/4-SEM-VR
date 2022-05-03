@@ -1,0 +1,79 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class GameManager : MonoBehaviour
+{   
+    GameObject _text;
+    TextMesh _setText;
+
+    public bool labcoatEquipped;
+    public bool glassesEquipped;
+    public bool glovesEquipped;
+    // Start is called before the first frame update
+    void Start()
+    {
+        _text = GameObject.FindGameObjectWithTag("Text");
+        _setText = _text.GetComponent<TextMesh>();
+        _text.SetActive(false);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    void Labcoat() {
+
+        labcoatEquipped.Equals(true);
+        _text.SetActive(true);
+
+        if (labcoatEquipped && glovesEquipped && glassesEquipped) {
+            _setText.text = "All safety items equipped. The door is now open";
+            GameObject.FindGameObjectWithTag("Door").SetActive(false);
+        }
+        else {
+            _setText.text = "Lab coat equipped!";
+        }
+
+        StartCoroutine("StopText");
+    }
+
+    void Glasses() {
+
+        glassesEquipped.Equals(true);
+        _text.SetActive(true);
+
+        if (labcoatEquipped && glovesEquipped && glassesEquipped) {
+            _setText.text = "All safety items equipped. The door is now open";
+            GameObject.FindGameObjectWithTag("Door").SetActive(false);
+        }
+        else {
+            _setText.text = "Safety glasses equipped!";
+        }
+
+        StartCoroutine("StopText");
+    }
+
+    void Gloves() {
+
+        glovesEquipped.Equals(true);
+        _text.SetActive(true);
+
+        if (labcoatEquipped && glovesEquipped && glassesEquipped) {
+            _setText.text = "All safety items equipped. The door is now open";
+            GameObject.FindGameObjectWithTag("Door").SetActive(false);
+        }
+        else {
+            _setText.text = "Safety gloves equipped!";
+        }
+
+        StartCoroutine("StopText");
+    }
+
+    IEnumerator StopText() {
+        yield return new WaitForSeconds(3);
+        _text.SetActive(false);
+    }
+}
