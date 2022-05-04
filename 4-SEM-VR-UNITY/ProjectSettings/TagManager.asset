@@ -9,6 +9,10 @@ TagManager:
   - GameManager
   - Text
   - Door
+  - Printer
+  - Cutter
+  - PCBPaper
+  - PCBPaperPrint
   layers:
   - Default
   - TransparentFX
