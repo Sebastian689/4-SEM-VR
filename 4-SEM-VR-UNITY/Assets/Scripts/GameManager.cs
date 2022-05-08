@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {   
     GameObject _text;
-    TextMesh _setText;
+    public TextMeshProUGUI _setText;
 
     public bool labcoatEquipped;
     public bool glassesEquipped;
@@ -14,7 +16,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         _text = GameObject.FindGameObjectWithTag("Text");
-        _setText = _text.GetComponent<TextMesh>();
+        _setText = _text.GetComponent<TextMeshProUGUI>();
         _text.SetActive(false);
     }
 
@@ -26,15 +28,16 @@ public class GameManager : MonoBehaviour
 
     void Labcoat() {
 
-        labcoatEquipped.Equals(true);
+        labcoatEquipped = true;
         _text.SetActive(true);
 
         if (labcoatEquipped && glovesEquipped && glassesEquipped) {
-            _setText.text = "All safety items equipped. The door is now open";
+            Debug.Log("All items equipped");
+            _setText.SetText("All safety items equipped. The door is now open");
             GameObject.FindGameObjectWithTag("Door").SetActive(false);
         }
         else {
-            _setText.text = "Lab coat equipped!";
+            _setText.SetText("Lab coat equipped!");
         }
 
         StartCoroutine("StopText");
@@ -42,7 +45,7 @@ public class GameManager : MonoBehaviour
 
     void Glasses() {
 
-        glassesEquipped.Equals(true);
+        glassesEquipped = true;
         _text.SetActive(true);
 
         if (labcoatEquipped && glovesEquipped && glassesEquipped) {
@@ -58,7 +61,7 @@ public class GameManager : MonoBehaviour
 
     void Gloves() {
 
-        glovesEquipped.Equals(true);
+        glovesEquipped = true;
         _text.SetActive(true);
 
         if (labcoatEquipped && glovesEquipped && glassesEquipped) {

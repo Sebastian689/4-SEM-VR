@@ -20,6 +20,7 @@ public class Print : MonoBehaviour
     void OnCollisionEnter(Collision col) {
         if (col.gameObject.CompareTag("PCBPaper")) {
             audio.Play();
+            Debug.Log("Print Audio");
         }
     }
 }

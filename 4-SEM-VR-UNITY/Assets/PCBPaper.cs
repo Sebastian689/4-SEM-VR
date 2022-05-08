@@ -8,6 +8,7 @@ public class PCBPaper : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {   
+        PcbPaperPrint = GameObject.FindGameObjectWithTag("PCBPaperPrint");
         PcbPaperPrint.SetActive(false);
     }
 

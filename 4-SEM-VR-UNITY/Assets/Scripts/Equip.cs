@@ -19,6 +19,8 @@ public class Equip : MonoBehaviour
         
         _name = this.gameObject.name;
 
+        
+
     }
 
     // Update is called once per frame
