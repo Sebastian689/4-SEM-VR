@@ -24,7 +24,7 @@ public class UncutPCB : MonoBehaviour
 
     void OnCollisionEnter(Collision col) {
         if (col.gameObject.CompareTag("Cutter")) {
-            PCB_Cutout.SetActive(true);
+            Instantiate(PCB_Cutout,this.gameObject.transform);
             audio.Play();
             this.gameObject.SetActive(false);
         }

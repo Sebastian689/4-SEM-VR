@@ -8,8 +8,7 @@ public class PCBPaper : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {   
-        PcbPaperPrint = GameObject.FindGameObjectWithTag("PCBPaperPrint");
-        PcbPaperPrint.SetActive(false);
+        
     }
 
     // Update is called once per frame
@@ -19,7 +18,7 @@ public class PCBPaper : MonoBehaviour
     }
 
     void OnCollisionEnter(Collision col) {
-        if (col.gameObject.CompareTag("Print")) {
+        if (col.gameObject.CompareTag("Printer")) {
             this.gameObject.SetActive(false);
             StartCoroutine("PrintPCB");
         }
@@ -27,7 +26,7 @@ public class PCBPaper : MonoBehaviour
 
     IEnumerator PrintPCB() {
         yield return new WaitForSeconds(2);
-        PcbPaperPrint.SetActive(true);
+        Instantiate(PcbPaperPrint,new Vector3(-0.652f,0.912f,-3.689f),Quaternion.identity);
     }
 
 }
