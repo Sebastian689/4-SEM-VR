@@ -6,6 +6,14 @@ TagManager:
   tags:
   - Shootable
   - Controller
+  - GameManager
+  - Text
+  - Door
+  - Printer
+  - Cutter
+  - PCBPaper
+  - PCBPaperPrint
+  - PCBCutout
   layers:
   - Default
   - TransparentFX
