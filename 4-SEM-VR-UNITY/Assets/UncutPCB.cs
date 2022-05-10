@@ -12,8 +12,6 @@ public class UncutPCB : MonoBehaviour
     {
         audio = this.gameObject.GetComponent<AudioSource>();
 
-        PCB_Cutout = GameObject.FindGameObjectWithTag("PCBCutout");
-        PCB_Cutout.SetActive(false);
     }
 
     // Update is called once per frame
