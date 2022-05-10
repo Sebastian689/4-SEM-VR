@@ -316,8 +316,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 521462ec9a4f80d4880c285d4f4e3acc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rightTeleportRay: {fileID: 0}
-  teleportActivationButton: 0
+  rightTeleportRay: {fileID: 2000125062}
+  teleportActivationButton: 3
   activationThreshold: 0.1
 --- !u!114 &12194609
 MonoBehaviour:
@@ -1108,7 +1108,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 3dfcaa1421eef024cb7e508cff2d27dc, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
