@@ -36,6 +36,7 @@ public class PCB_Cutout : MonoBehaviour
         {
             XRGrab.enabled = false;
             this.transform.position = Dtransform.position;
+            this.GetComponent<SphereCollider>().enabled = false;
         }
     }
 }

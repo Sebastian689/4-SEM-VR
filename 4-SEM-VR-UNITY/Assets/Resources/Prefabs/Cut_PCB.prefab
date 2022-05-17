@@ -70,7 +70,7 @@ PrefabInstance:
     - target: {fileID: 6079264152469728999, guid: ed646447d8e1be041b903790acba75d4,
         type: 3}
       propertyPath: m_Name
-      value: Uncut2
+      value: Cut_PCB
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6079264152469729006, guid: ed646447d8e1be041b903790acba75d4, type: 3}

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Syrebasekar : MonoBehaviour
 {
-    
 
+    public bool PCBattached = false;
     public Animator anim;
 
     void Start() {
