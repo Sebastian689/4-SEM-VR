@@ -14,6 +14,8 @@ TagManager:
   - PCBPaper
   - PCBPaperPrint
   - PCBCutout
+  - Developer
+  - Acid
   layers:
   - Default
   - TransparentFX
