@@ -5,13 +5,16 @@ using UnityEngine.Serialization;
 using UnityEngine.XR.Interaction.Toolkit;
 
 
-public class PCB_Cutout : MonoBehaviour
+public class Cut_PCB : MonoBehaviour
 {
     private XRGrabInteractable XRGrab;
     public GameObject Developer;
     public GameObject Acid;
     public Transform Dtransform;
     public Transform Atransform;
+    public SphereCollider GSpot;
+    public Syrebasekar script;
+    
    
     // Start is called before the first frame update
     void Start()
@@ -21,6 +24,8 @@ public class PCB_Cutout : MonoBehaviour
         Acid = GameObject.Find("AcidTub");
         Dtransform = Developer.transform.Find("Cube.001").gameObject.transform;
         Atransform = Acid.transform.Find("Cube.001").gameObject.transform;
+        GSpot = Developer.transform.Find("Cube.001").gameObject.GetComponent<SphereCollider>();
+
     }
 
     // Update is called once per frame
@@ -36,7 +41,8 @@ public class PCB_Cutout : MonoBehaviour
         {
             XRGrab.enabled = false;
             this.transform.position = Dtransform.position;
-            this.GetComponent<SphereCollider>().enabled = false;
+            this.GetComponent<BoxCollider>().enabled = false;
+            script.CheckStatus();
         }
     }
 }
