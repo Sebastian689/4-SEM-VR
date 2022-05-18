@@ -5,14 +5,12 @@ using UnityEngine;
 public class UncutPCB : MonoBehaviour
 {
     public GameObject PCB_Cutout;
-
-    //Marked out audio indtil videre. Kan kigges på hvis vi får tid.
-    //AudioSource audio;
+    AudioSource audio;
 
     // Start is called before the first frame update
     void Start()
     {
-        //audio = this.gameObject.GetComponent<AudioSource>();
+        audio = this.gameObject.GetComponent<AudioSource>();
 
     }
 
@@ -24,8 +22,8 @@ public class UncutPCB : MonoBehaviour
 
     void OnCollisionEnter(Collision col) {
         if (col.gameObject.CompareTag("Cutter")) {
-            Instantiate(PCB_Cutout,this.gameObject.transform.position, Quaternion.identity);
-            //audio.Play();
+            Instantiate(PCB_Cutout,this.gameObject.transform);
+            audio.Play();
             this.gameObject.SetActive(false);
         }
     }

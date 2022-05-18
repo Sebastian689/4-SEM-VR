@@ -19,7 +19,7 @@ public class PCBPaper : MonoBehaviour
 
     void OnCollisionEnter(Collision col) {
         if (col.gameObject.CompareTag("Printer")) {
-            
+            this.gameObject.SetActive(false);
             StartCoroutine("PrintPCB");
         }
     }
@@ -27,7 +27,6 @@ public class PCBPaper : MonoBehaviour
     IEnumerator PrintPCB() {
         yield return new WaitForSeconds(2);
         Instantiate(PcbPaperPrint,new Vector3(-0.652f,0.912f,-3.689f),Quaternion.identity);
-        this.gameObject.SetActive(false);
     }
 
 }
