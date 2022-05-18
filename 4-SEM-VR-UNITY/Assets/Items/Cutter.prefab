@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3246780041793304613}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.682, y: 0.624, z: -3.209873}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 9209243575233359005}
@@ -142,6 +142,42 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.011313677, y: 0.0016000016, z: 0.005283459}
   m_Center: {x: -0.0016568368, y: -5.0401683e-10, z: -0.0016417281}
+--- !u!59 &8634976202283286872
+HingeJoint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 905284593975186846}
+  m_ConnectedBody: {fileID: 3570351442693934617}
+  m_ConnectedArticulationBody: {fileID: 0}
+  m_Anchor: {x: 0.003, y: 0.00080000027, z: 0}
+  m_Axis: {x: 0, y: 1, z: 0}
+  m_AutoConfigureConnectedAnchor: 1
+  m_ConnectedAnchor: {x: 0.0034651814, y: 0.00459, z: 0.004063652}
+  m_UseSpring: 0
+  m_Spring:
+    spring: 0
+    damper: 0
+    targetPosition: 0
+  m_UseMotor: 0
+  m_Motor:
+    targetVelocity: 0
+    force: 0
+    freeSpin: 0
+  m_UseLimits: 1
+  m_Limits:
+    min: -68
+    max: 0
+    bounciness: 0
+    bounceMinVelocity: 0.2
+    contactDistance: 0
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_EnableCollision: 0
+  m_EnablePreprocessing: 1
+  m_MassScale: 1
+  m_ConnectedMassScale: 1
 --- !u!114 &3954825588049086319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -258,42 +294,6 @@ MonoBehaviour:
   m_ForceGravityOnDetach: 0
   m_RetainTransformParent: 1
   m_AttachPointCompatibilityMode: 0
---- !u!59 &8634976202283286872
-HingeJoint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 905284593975186846}
-  m_ConnectedBody: {fileID: 3570351442693934617}
-  m_ConnectedArticulationBody: {fileID: 0}
-  m_Anchor: {x: 0.003, y: 0.00080000027, z: 0}
-  m_Axis: {x: 0, y: 1, z: 0}
-  m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.0034651814, y: 0.00459, z: 0.004063652}
-  m_UseSpring: 0
-  m_Spring:
-    spring: 0
-    damper: 0
-    targetPosition: 0
-  m_UseMotor: 0
-  m_Motor:
-    targetVelocity: 0
-    force: 0
-    freeSpin: 0
-  m_UseLimits: 1
-  m_Limits:
-    min: -68
-    max: 0
-    bounciness: 0
-    bounceMinVelocity: 0.2
-    contactDistance: 0
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_EnableCollision: 0
-  m_EnablePreprocessing: 1
-  m_MassScale: 1
-  m_ConnectedMassScale: 1
 --- !u!1001 &8667027126025210742
 PrefabInstance:
   m_ObjectHideFlags: 0
