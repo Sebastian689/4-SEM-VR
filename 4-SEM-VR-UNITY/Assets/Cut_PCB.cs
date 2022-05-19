@@ -14,6 +14,7 @@ public class Cut_PCB : MonoBehaviour
     public Transform Atransform;
     public SphereCollider GSpot;
     public Syrebasekar script;
+    private bool attached;
     
    
     // Start is called before the first frame update
@@ -25,6 +26,7 @@ public class Cut_PCB : MonoBehaviour
         Dtransform = Developer.transform.Find("Cube.001").gameObject.transform;
         Atransform = Acid.transform.Find("Cube.001").gameObject.transform;
         GSpot = Developer.transform.Find("Cube.001").gameObject.GetComponent<SphereCollider>();
+        script = Developer.GetComponent<Syrebasekar>();
 
     }
 
@@ -32,6 +34,10 @@ public class Cut_PCB : MonoBehaviour
     void Update()
     {
         
+        if (attached == true)
+        {
+            this.transform.position = Dtransform.position;
+        }
     }
 
     void OnCollisionEnter(Collision col)
@@ -39,10 +45,10 @@ public class Cut_PCB : MonoBehaviour
         //OnTriggerEnter???
         if (col.gameObject.CompareTag("Developer"))
         {
-            XRGrab.enabled = false;
-            this.transform.position = Dtransform.position;
-            this.GetComponent<BoxCollider>().enabled = false;
+            attached = true;
+            script.isAttached = true;
             script.CheckStatus();
+   
         }
     }
 }

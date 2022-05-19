@@ -7,7 +7,7 @@ public class Syrebasekar : MonoBehaviour
 
     private Transform originalPos;
     public GameObject cube;
-    public static bool isAttached = false;
+    public bool isAttached = false;
 
     void Start() {
         cube = this.transform.Find("Cube.001").gameObject;
@@ -31,8 +31,8 @@ public class Syrebasekar : MonoBehaviour
     {
         if (isAttached == true && cube.transform.position == originalPos.position)
         {
-
-            isAttached = false;
+            Debug.LogError("Is true");
+            //isAttached = false;
         }
         else
         {
