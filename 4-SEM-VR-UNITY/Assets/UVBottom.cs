@@ -5,8 +5,8 @@ using UnityEngine;
 public class UVBottom : MonoBehaviour
 {
     GameObject _gameManager;
-
-    bool _closed = true;
+    
+    public bool _closed = true;
 
     Transform _topOrigin;
 
@@ -23,32 +23,28 @@ public class UVBottom : MonoBehaviour
     {
         _topCurrent = GameObject.FindGameObjectWithTag("UVTop").transform;
 
-        if (_topCurrent != _topOrigin) {
-            _closed = false;
-            
+        if (!_closed) {
             _gameManager.GetComponent<GameManager>().Invoke("StopTimer",0);
-        }
-        else {
-            _closed = true;
         }
     }
 
     private void OnCollisionEnter(Collision other) {
-        if (other.gameObject.CompareTag("PCBCutout") && _closed == true) {
+        if (other.gameObject.CompareTag("PCBCutout") && _closed) {
             _gameManager.GetComponent<GameManager>().Invoke("StartTimer", 0);
         }
     }
 
     public void OpenPrinter() {
         if (_closed) {
-            GameObject.FindGameObjectWithTag("UVTop").transform.position = new Vector3(0.0599999987f,-0.0949999988f,0.179000005f);
-            GameObject.FindGameObjectWithTag("UVTop").transform.Rotate(1.00228894f,48.7940216f,357.41156f,Space.Self);
-
             _closed = false;
+            GameObject.FindGameObjectWithTag("UVTop").transform.localPosition = new Vector3(0.0599999987f,-0.0949999988f,0.179000005f);
+            //GameObject.FindGameObjectWithTag("UVTop").transform.Rotate(1.00228894f,48.7940216f,357.41156f,Space.Self);
+            GameObject.FindGameObjectWithTag("UVTop").transform.localRotation = Quaternion.Euler(1.00228894f,48.7940216f,357.41156f);
         }
         else {
-            GameObject.FindGameObjectWithTag("UVTop").transform.position = _topOrigin.position;
-            GameObject.FindGameObjectWithTag("UVTop").transform.rotation = _topOrigin.rotation;
+            Debug.Log("Cringe");
+            GameObject.FindGameObjectWithTag("UVTop").transform.localPosition = new Vector3(0.0160803795f,-0.107000001f,0.00400000019f);
+            GameObject.FindGameObjectWithTag("UVTop").transform.localRotation = Quaternion.Euler(0,0,0);
             _closed = true;
         }
     }
