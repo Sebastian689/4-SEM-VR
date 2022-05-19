@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
     public GameObject Drawer;
     Vector3 _drawerPos;
 
+    private GameObject PCBCutOut;
+
     public Transform room2;
 
 
@@ -56,6 +58,8 @@ public class GameManager : MonoBehaviour
 
             if (_currentTime > 85) {
                 StopTimer();
+                PCBCutOut = GameObject.Find("PCB_cutout(Clone)");
+                Destroy(PCBCutOut);
                 _text.SetActive(true);
                 _setText.text = "The PCB has been in the UV printer for too long, and is ruined.";
                 _currentTime = 0;
