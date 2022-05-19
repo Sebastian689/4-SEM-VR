@@ -24,9 +24,9 @@ public class UncutPCB : MonoBehaviour
 
     void OnCollisionEnter(Collision col) {
         if (col.gameObject.CompareTag("Cutter")) {
-            Instantiate(PCB_Cutout,this.gameObject.transform.position, Quaternion.identity);
+            Instantiate(PCB_Cutout, new Vector3(-0.638599992f,1.63199997f,-3.26169991f), Quaternion.Euler(270.019775f,0f,0f));
             //audio.Play();
-            this.gameObject.SetActive(false);
+            gameObject.SetActive(false);
         }
     }
 }

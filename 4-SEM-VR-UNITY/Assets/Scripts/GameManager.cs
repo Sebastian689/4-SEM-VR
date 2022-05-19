@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
     public GameObject Drawer;
     Vector3 _drawerPos;
 
+    public Transform room2;
+
 
 
     public bool labcoatEquipped;
@@ -139,9 +141,13 @@ public class GameManager : MonoBehaviour
         
         Drawer.transform.position = _drawerPos;
 
-        Instantiate(UncutPCB, new Vector3(0.243049994f,0.899500012f,-1.54264998f), Quaternion.identity);
+        UncutPCB.SetActive(true);
+        Instantiate(UncutPCB, new Vector3(0.243049994f,0.899500012f,-1.54264998f), Quaternion.identity, room2);
+        UncutPCB.SetActive(false);
 
-        Instantiate(PCBPaper, new Vector3(-0.627099991f,0.333999991f,-3.51789999f), Quaternion.identity);
+        PCBPaper.SetActive(true);
+        Instantiate(PCBPaper, new Vector3(-0.627099991f,0.333999991f,-3.51789999f), Quaternion.identity, room2);
+        PCBPaper.SetActive(false);
 
         StopAllCoroutines();
         StartCoroutine("StopText");

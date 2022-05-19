@@ -28,9 +28,17 @@ public class UVBottom : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision other) {
+    private void OnCollisionStay(Collision other) {
         if (other.gameObject.CompareTag("PCBCutout") && _closed) {
             _gameManager.GetComponent<GameManager>().Invoke("StartTimer", 0);
+        }
+    }
+    
+    private void OnCollisionEnter(Collision other) {
+        if (other.gameObject.CompareTag("PCBCutout") && !_closed)
+        {
+            other.gameObject.transform.localPosition = new Vector3(-0.703000009f, 1.68200004f, -4.43900013f);
+            other.gameObject.transform.rotation = Quaternion.Euler(270.019775f,0f,0f);
         }
     }
 
