@@ -12,9 +12,12 @@ public class Cut_PCB : MonoBehaviour
     public GameObject Acid;
     public Transform Dtransform;
     public Transform Atransform;
-    public SphereCollider GSpot;
-    public Syrebasekar script;
+   
+    public Syrebasekar baseScript;
+    public Syrebasekar syreScript;
     private bool attached;
+    private bool Base = false;
+    private bool Syre = false;
     
    
     // Start is called before the first frame update
@@ -23,10 +26,10 @@ public class Cut_PCB : MonoBehaviour
         XRGrab = GetComponent<XRGrabInteractable>();
         Developer = GameObject.Find("Developer");
         Acid = GameObject.Find("AcidTub");
-        Dtransform = Developer.transform.Find("Cube.001").gameObject.transform;
-        Atransform = Acid.transform.Find("Cube.001").gameObject.transform;
-        GSpot = Developer.transform.Find("Cube.001").gameObject.GetComponent<SphereCollider>();
-        script = Developer.GetComponent<Syrebasekar>();
+        Dtransform = Developer.transform.Find("Cube.001").GetComponent<SphereCollider>().transform;
+        Atransform = Acid.transform.Find("Cube.001").GetComponent<SphereCollider>().transform;
+        syreScript = Acid.GetComponent<Syrebasekar>();
+        baseScript = Developer.GetComponent<Syrebasekar>();
 
     }
 
@@ -34,9 +37,14 @@ public class Cut_PCB : MonoBehaviour
     void Update()
     {
         
-        if (attached == true)
+        if (attached == true && Base == true)
         {
             this.transform.position = Dtransform.position;
+        }
+
+        if (attached == true && Syre == true)
+        {
+            this.transform.position = Atransform.position;
         }
     }
 
@@ -46,9 +54,22 @@ public class Cut_PCB : MonoBehaviour
         if (col.gameObject.CompareTag("Developer"))
         {
             attached = true;
-            script.isAttached = true;
-            script.CheckStatus();
-   
+            baseScript.isAttached = true;
+            baseScript.CheckStatus();
+            Base = true;
+            Syre = false;
+        }
+
+        if (col.gameObject.CompareTag("Acid"))
+        {
+            attached = true;
+            syreScript.isAttached = true;
+            syreScript.CheckStatus();
+            Base = false;
+            Syre = true;
+
         }
     }
+
+   
 }
