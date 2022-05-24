@@ -57,6 +57,7 @@ public class Cut_PCB : MonoBehaviour
         {
             attached = true;
             baseScript.isAttached = true;
+            syreScript.isAttached = false;
             baseScript.CheckStatus();
             Base = true;
             Syre = false;
@@ -66,6 +67,7 @@ public class Cut_PCB : MonoBehaviour
         {
             attached = true;
             syreScript.isAttached = true;
+            baseScript.isAttached = false;
             syreScript.CheckStatus();
             Base = false;
             Syre = true;
