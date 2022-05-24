@@ -22,9 +22,13 @@ public class GameManager : MonoBehaviour
 
     private GameObject PCBCutOut;
 
+    GameObject Button;
+
     public Transform room2;
 
-
+    bool _developer;
+    bool _syrekar;
+    bool _UVPrinter;
 
     public bool labcoatEquipped;
     public bool glassesEquipped;
@@ -39,6 +43,8 @@ public class GameManager : MonoBehaviour
         _text = GameObject.FindGameObjectWithTag("Text");
         _setText = _text.GetComponent<TextMeshProUGUI>();
         _text.SetActive(false);
+        Button = GameObject.FindGameObjectWithTag("Button");
+        Button.SetActive(false);
 
         _currentTime = 0;
 
@@ -56,7 +62,24 @@ public class GameManager : MonoBehaviour
             _text.SetActive(true);
             _setText.text = time.ToString(@"mm\:ss\:fff");
 
-            if (_currentTime > 85) {
+            if (_currentTime > 240 && _developer) {
+                StopTimer();
+                PCBCutOut = GameObject.Find("PCB_cutout(Clone)");
+                Destroy(PCBCutOut);
+                _text.SetActive(true);
+                _setText.text = "The PCB has been in the developer for too long, and is ruined.";
+                _currentTime = 0;
+                Restart();
+
+            } else if (_currentTime > 1920 && _syrekar) {
+                StopTimer();
+                PCBCutOut = GameObject.Find("PCB_cutout(Clone)");
+                Destroy(PCBCutOut);
+                _text.SetActive(true);
+                _setText.text = "The PCB has been in the acid tub for too long, and is ruined.";
+                _currentTime = 0;
+                Restart();
+            } else if (_currentTime > 85 && _UVPrinter) {
                 StopTimer();
                 PCBCutOut = GameObject.Find("PCB_cutout(Clone)");
                 Destroy(PCBCutOut);
@@ -64,21 +87,41 @@ public class GameManager : MonoBehaviour
                 _setText.text = "The PCB has been in the UV printer for too long, and is ruined.";
                 _currentTime = 0;
                 Restart();
-
             }
         }
         
     }
 
-    void StartTimer() {
+    void StartTimerPrinter() {
+        _currentTime = 0;
         Debug.Log("Timer started");
         _timerActive = true;
+        _UVPrinter = true;
+    }
+
+    void StartTimerDeveloper() {
+        _currentTime = 0;
+        Debug.Log("Developer timer");
+        _timerActive = true;
+        _developer = true;
+    }
+
+    void StartTimerSyrekar() {
+        _currentTime = 0;
+        Debug.Log("Developer timer");
+        _timerActive = true;
+        _syrekar = true;
+        Button.SetActive(true);
     }
 
     void StopTimer() {
         Debug.Log("Timer stopped");
         _timerActive = false;
         _text.SetActive(false);
+    }
+
+    public void AddTime() {
+        _currentTime += 600;
     }
 
     void Labcoat() {

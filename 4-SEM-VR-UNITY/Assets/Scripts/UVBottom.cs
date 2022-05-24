@@ -30,7 +30,7 @@ public class UVBottom : MonoBehaviour
 
     private void OnCollisionStay(Collision other) {
         if (other.gameObject.CompareTag("PCBCutout") && _closed) {
-            _gameManager.GetComponent<GameManager>().Invoke("StartTimer", 0);
+            _gameManager.GetComponent<GameManager>().Invoke("StartTimerPrinter", 0);
         }
     }
     

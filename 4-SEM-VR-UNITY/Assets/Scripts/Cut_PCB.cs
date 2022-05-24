@@ -12,17 +12,24 @@ public class Cut_PCB : MonoBehaviour
     public GameObject Acid;
     public Transform Dtransform;
     public Transform Atransform;
+
+    GameObject _gameManager;
    
     public Syrebasekar baseScript;
     public Syrebasekar syreScript;
-    private bool attached;
-    private bool Base = false;
-    private bool Syre = false;
+    [SerializeField]
+    bool attached;
+    [SerializeField]
+    bool Base = false;
+    [SerializeField]
+    bool Syre = false;
     
    
     // Start is called before the first frame update
     void Start()
     {
+        _gameManager = GameObject.FindGameObjectWithTag("GameManager");
+
         XRGrab = GetComponent<XRGrabInteractable>();
         Developer = GameObject.Find("Developer");
         Acid = GameObject.Find("AcidTub");
@@ -39,14 +46,14 @@ public class Cut_PCB : MonoBehaviour
         
         if (attached == true && Base == true)
         {
-            this.transform.position = new Vector3(Dtransform.position.x - 0.1F, Dtransform.position.y + 0.2F, Dtransform.position.z + 0.27F);
-            this.transform.rotation = new Quaternion(90, 90, 0, 0);
+            this.transform.localPosition = new Vector3(Dtransform.position.x - 0.1F, Dtransform.position.y + 0.2F, Dtransform.position.z + 0.27F);
+            this.transform.localRotation = new Quaternion(90, 90, 0, 0);
         }
 
         if (attached == true && Syre == true)
         {
-            this.transform.position = new Vector3(Atransform.position.x - 0.1F, Atransform.position.y + 0.2F, Atransform.position.z + 0.27F);
-            this.transform.rotation = new Quaternion(90, 90, 0, 0);
+            this.transform.localPosition = new Vector3(Atransform.position.x - 0.1F, Atransform.position.y + 0.2F, Atransform.position.z + 0.27F);
+            this.transform.localRotation = new Quaternion(90, 90, 0, 0);
         }
     }
 
@@ -55,22 +62,28 @@ public class Cut_PCB : MonoBehaviour
         //OnTriggerEnter???
         if (col.gameObject.CompareTag("Developer"))
         {
+            Debug.Log("Collided with developer");
             attached = true;
             baseScript.isAttached = true;
             syreScript.isAttached = false;
             baseScript.CheckStatus();
             Base = true;
             Syre = false;
+
+            _gameManager.GetComponent<GameManager>().Invoke("StartTimerDeveloper",0);
         }
 
         if (col.gameObject.CompareTag("Acid"))
         {
+            Debug.Log("Collided with acid");
             attached = true;
             syreScript.isAttached = true;
             baseScript.isAttached = false;
             syreScript.CheckStatus();
             Base = false;
             Syre = true;
+
+            _gameManager.GetComponent<GameManager>().Invoke("StartTimerSyrekar",0);
 
         }
     }
