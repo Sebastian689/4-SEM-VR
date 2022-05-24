@@ -39,12 +39,14 @@ public class Cut_PCB : MonoBehaviour
         
         if (attached == true && Base == true)
         {
-            this.transform.position = Dtransform.position;
+            this.transform.position = new Vector3(Dtransform.position.x - 0.1F, Dtransform.position.y + 0.2F, Dtransform.position.z + 0.27F);
+            this.transform.rotation = new Quaternion(90, 90, 0, 0);
         }
 
         if (attached == true && Syre == true)
         {
-            this.transform.position = Atransform.position;
+            this.transform.position = new Vector3(Atransform.position.x - 0.1F, Atransform.position.y + 0.2F, Atransform.position.z + 0.27F);
+            this.transform.rotation = new Quaternion(90, 90, 0, 0);
         }
     }
 
