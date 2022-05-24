@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UncutPCB : MonoBehaviour
 {
-    public GameObject PCB_Cutout;
+    public GameObject Cut_PCB;
 
     //Marked out audio indtil videre. Kan kigges på hvis vi får tid.
     //AudioSource audio;
@@ -24,7 +24,7 @@ public class UncutPCB : MonoBehaviour
 
     void OnCollisionEnter(Collision col) {
         if (col.gameObject.CompareTag("Cutter")) {
-            Instantiate(PCB_Cutout, new Vector3(-0.638599992f,1.63199997f,-3.26169991f), Quaternion.Euler(270.019775f,0f,0f));
+            Instantiate(Cut_PCB, new Vector3(-0.638599992f,1.63199997f,-3.26169991f), Quaternion.Euler(270.019775f,0f,0f));
             //audio.Play();
             gameObject.SetActive(false);
         }

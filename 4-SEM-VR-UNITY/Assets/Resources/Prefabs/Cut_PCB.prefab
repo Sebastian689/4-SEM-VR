@@ -88,7 +88,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5298750680552122789}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bd345783aa5928045bb841623e5e2f83, type: 3}
   m_Name: 
@@ -97,3 +97,8 @@ MonoBehaviour:
   Acid: {fileID: 0}
   Dtransform: {fileID: 0}
   Atransform: {fileID: 0}
+  baseScript: {fileID: 0}
+  syreScript: {fileID: 0}
+  attached: 0
+  Base: 0
+  Syre: 0

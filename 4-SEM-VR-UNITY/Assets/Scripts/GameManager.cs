@@ -114,7 +114,7 @@ public class GameManager : MonoBehaviour
         Button.SetActive(true);
     }
 
-    void StopTimer() {
+    public void StopTimer() {
         Debug.Log("Timer stopped");
         _timerActive = false;
         _text.SetActive(false);

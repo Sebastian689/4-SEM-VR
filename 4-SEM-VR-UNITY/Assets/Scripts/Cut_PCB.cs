@@ -17,6 +17,7 @@ public class Cut_PCB : MonoBehaviour
    
     public Syrebasekar baseScript;
     public Syrebasekar syreScript;
+    public PCBCutout cutoutScript;
     [SerializeField]
     bool attached;
     [SerializeField]
@@ -37,6 +38,7 @@ public class Cut_PCB : MonoBehaviour
         Atransform = Acid.transform.Find("Cube.001").GetComponent<SphereCollider>().transform;
         syreScript = Acid.GetComponent<Syrebasekar>();
         baseScript = Developer.GetComponent<Syrebasekar>();
+        cutoutScript = this.GetComponent<PCBCutout>();
 
     }
 
@@ -60,7 +62,7 @@ public class Cut_PCB : MonoBehaviour
     void OnCollisionEnter(Collision col)
     {
         //OnTriggerEnter???
-        if (col.gameObject.CompareTag("Developer"))
+        if (col.gameObject.CompareTag("Developer") && attached != true)
         {
             Debug.Log("Collided with developer");
             attached = true;
@@ -73,7 +75,7 @@ public class Cut_PCB : MonoBehaviour
             _gameManager.GetComponent<GameManager>().Invoke("StartTimerDeveloper",0);
         }
 
-        if (col.gameObject.CompareTag("Acid"))
+        if (col.gameObject.CompareTag("Acid") && attached != true)
         {
             Debug.Log("Collided with acid");
             attached = true;
@@ -88,5 +90,23 @@ public class Cut_PCB : MonoBehaviour
         }
     }
 
-   
+   public void Grabbed()
+    {
+        if (attached == true)
+        {
+            attached = false;
+            baseScript.isAttached = false;
+            syreScript.isAttached = false;
+            Syre = false;
+            Base = false;
+           
+            Debug.Log("Grabbed and free");
+            GameObject.Find("GameManager").GetComponent<GameManager>().StopTimer();
+
+        }
+        else
+        {
+            Debug.Log("Grabbed but not free");
+        }
+    }
 }
