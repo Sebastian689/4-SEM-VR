@@ -10,19 +10,10 @@ public class PCBCutout : MonoBehaviour
 
     public Material material;
 
-    
-    
-    // Start is called before the first frame update
     void Start()
     {
         gameManager = GameObject.FindGameObjectWithTag("GameManager");
         _m = this.GetComponent<MeshRenderer>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     void OnCollisionEnter(Collision col) {

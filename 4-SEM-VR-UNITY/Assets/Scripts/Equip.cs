@@ -8,7 +8,6 @@ using UnityEngine.InputSystem;
 
 public class Equip : MonoBehaviour
 {
-    
     GameObject _gameManager;
     
     string _name;
@@ -18,15 +17,6 @@ public class Equip : MonoBehaviour
         _gameManager = GameObject.FindGameObjectWithTag("GameManager");
         
         _name = this.gameObject.name;
-
-        
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void Destroy()

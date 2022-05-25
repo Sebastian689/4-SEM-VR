@@ -11,12 +11,6 @@ public class Print : MonoBehaviour
         audio = this.gameObject.GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void OnCollisionEnter(Collision col) {
         if (col.gameObject.CompareTag("PCBPaper")) {
             audio.Play();

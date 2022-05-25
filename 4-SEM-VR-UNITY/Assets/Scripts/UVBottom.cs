@@ -46,11 +46,9 @@ public class UVBottom : MonoBehaviour
         if (_closed) {
             _closed = false;
             GameObject.FindGameObjectWithTag("UVTop").transform.localPosition = new Vector3(0.0599999987f,-0.0949999988f,0.179000005f);
-            //GameObject.FindGameObjectWithTag("UVTop").transform.Rotate(1.00228894f,48.7940216f,357.41156f,Space.Self);
             GameObject.FindGameObjectWithTag("UVTop").transform.localRotation = Quaternion.Euler(1.00228894f,48.7940216f,357.41156f);
         }
         else {
-            Debug.Log("Cringe");
             GameObject.FindGameObjectWithTag("UVTop").transform.localPosition = new Vector3(0.0160803795f,-0.107000001f,0.00400000019f);
             GameObject.FindGameObjectWithTag("UVTop").transform.localRotation = Quaternion.Euler(0,0,0);
             _closed = true;

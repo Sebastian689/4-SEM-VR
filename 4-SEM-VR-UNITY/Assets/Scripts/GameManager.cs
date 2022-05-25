@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour
                 _currentTime = 0;
                 Restart();
 
-            } else if (_currentTime > 1920 && _syrekar) {
+            } else if (_currentTime > 40 && _syrekar) {
                 StopTimer();
                 PCBCutOut = GameObject.Find("PCB_cutout(Clone)");
                 Destroy(PCBCutOut);

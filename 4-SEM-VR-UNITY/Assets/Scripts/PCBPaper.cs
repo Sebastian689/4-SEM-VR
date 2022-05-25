@@ -5,21 +5,9 @@ using UnityEngine;
 public class PCBPaper : MonoBehaviour
 {
     public GameObject PcbPaperPrint;
-    // Start is called before the first frame update
-    void Start()
-    {   
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     void OnCollisionEnter(Collision col) {
         if (col.gameObject.CompareTag("Printer")) {
-            
             StartCoroutine("PrintPCB");
         }
     }
