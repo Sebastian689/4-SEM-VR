@@ -27,6 +27,7 @@ public class Cut_PCB : MonoBehaviour
     
    
     // Start is called before the first frame update
+    // Attributes objects from game to values declared within script.
     void Start()
     {
         _gameManager = GameObject.FindGameObjectWithTag("GameManager");
@@ -43,6 +44,7 @@ public class Cut_PCB : MonoBehaviour
     }
 
     // Update is called once per frame
+    // Makes certain that when the PCB must attach to the developer bath, it does so.
     void Update()
     {
         
@@ -59,9 +61,11 @@ public class Cut_PCB : MonoBehaviour
         }
     }
 
+
+    // Detects collisions between the PCB and the developer baths. Depending on which it collides with it initiates the functionality of the update function by changing boolean values. Then invokes the timer from the GamemManager.
     void OnCollisionEnter(Collision col)
     {
-        //OnTriggerEnter???
+       
         if (col.gameObject.CompareTag("Developer") && attached != true)
         {
             Debug.Log("Collided with developer");
@@ -90,6 +94,8 @@ public class Cut_PCB : MonoBehaviour
         }
     }
 
+
+    // When grabbed this function is called by the interactable event system. The Update function is stopped by changing boolean values,
    public void Grabbed()
     {
         if (attached == true)
