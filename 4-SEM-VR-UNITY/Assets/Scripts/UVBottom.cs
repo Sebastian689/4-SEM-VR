@@ -37,8 +37,8 @@ public class UVBottom : MonoBehaviour
     private void OnCollisionEnter(Collision other) {
         if (other.gameObject.CompareTag("PCBCutout") && !_closed)
         {
-            other.gameObject.transform.localPosition = new Vector3(-0.703000009f, 1.68200004f, -4.43900013f);
-            other.gameObject.transform.rotation = Quaternion.Euler(270.019775f,0f,0f);
+            other.gameObject.transform.localPosition = new Vector3(-0.752099991f,0.680800021f,-4.37790012f);
+            other.gameObject.transform.rotation = Quaternion.Euler(0f,0f,0f);
         }
     }
 
