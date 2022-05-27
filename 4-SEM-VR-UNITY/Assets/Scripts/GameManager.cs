@@ -71,9 +71,9 @@ public class GameManager : MonoBehaviour
                 _currentTime = 0;
                 Restart();
 
-            } else if (_currentTime > 40 && _syrekar) {
+            } else if (_currentTime > 2400 && _syrekar) {
                 StopTimer();
-                PCBCutOut = GameObject.Find("PCB_cutout(Clone)");
+                PCBCutOut = GameObject.Find("Cut_PCB(Clone)");
                 Destroy(PCBCutOut);
                 _text.SetActive(true);
                 _setText.text = "The PCB has been in the acid tub for too long, and is ruined.";
@@ -108,7 +108,7 @@ public class GameManager : MonoBehaviour
 
     void StartTimerSyrekar() {
         _currentTime = 0;
-        Debug.Log("Developer timer");
+        Debug.Log("Acid timer");
         _timerActive = true;
         _syrekar = true;
         Button.SetActive(true);
@@ -118,6 +118,10 @@ public class GameManager : MonoBehaviour
         Debug.Log("Timer stopped");
         _timerActive = false;
         _text.SetActive(false);
+        Button.SetActive(false);
+        _syrekar = false;
+        _developer = false;
+        _UVPrinter = false;
     }
 
     public void AddTime() {

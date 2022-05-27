@@ -14,6 +14,8 @@ public class Cut_PCB : MonoBehaviour
     public Transform Atransform;
 
     GameObject _gameManager;
+
+    private GameObject _particles;
    
     public Syrebasekar baseScript;
     public Syrebasekar syreScript;
@@ -30,6 +32,7 @@ public class Cut_PCB : MonoBehaviour
     // Attributes objects from game to values declared within script.
     void Start()
     {
+        _particles = gameObject.transform.GetChild(0).gameObject;
         _gameManager = GameObject.FindGameObjectWithTag("GameManager");
 
         XRGrab = GetComponent<XRGrabInteractable>();
@@ -68,6 +71,7 @@ public class Cut_PCB : MonoBehaviour
        
         if (col.gameObject.CompareTag("Developer") && attached != true)
         {
+            _particles.SetActive(true);
             Debug.Log("Collided with developer");
             attached = true;
             baseScript.isAttached = true;
@@ -81,6 +85,7 @@ public class Cut_PCB : MonoBehaviour
 
         if (col.gameObject.CompareTag("Acid") && attached != true)
         {
+            _particles.SetActive(true);
             Debug.Log("Collided with acid");
             attached = true;
             syreScript.isAttached = true;
@@ -107,7 +112,7 @@ public class Cut_PCB : MonoBehaviour
             Base = false;
            
             Debug.Log("Grabbed and free");
-            GameObject.Find("GameManager").GetComponent<GameManager>().StopTimer();
+            _gameManager.GetComponent<GameManager>().Invoke("StopTimer",0);
 
         }
         else

@@ -5,6 +5,7 @@ using UnityEngine;
 public class UVBottom : MonoBehaviour
 {
     GameObject _gameManager;
+    public GameObject simonPCB;
     
     public bool _closed = true;
 
@@ -31,6 +32,8 @@ public class UVBottom : MonoBehaviour
     private void OnCollisionStay(Collision other) {
         if (other.gameObject.CompareTag("PCBCutout") && _closed) {
             _gameManager.GetComponent<GameManager>().Invoke("StartTimerPrinter", 0);
+            GameObject.Find("PCB_cutout(Clone)").SetActive(false);
+            Instantiate(simonPCB, new Vector3(-0.745000005f,0.680000007f,-4.375f), Quaternion.Euler(0f,0f,0f));
         }
     }
     
