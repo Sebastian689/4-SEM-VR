@@ -13104,7 +13104,7 @@ PrefabInstance:
     - target: {fileID: 3487082516463041422, guid: 9edcb6556353c6044861763f99256dc7,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9edcb6556353c6044861763f99256dc7, type: 3}
@@ -17420,6 +17420,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: glove2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b700c210f512c5e40ba15f53aae8ac83,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b700c210f512c5e40ba15f53aae8ac83, type: 3}
